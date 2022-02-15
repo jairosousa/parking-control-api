@@ -1,13 +1,20 @@
 package com.api.parkingcontrol.dtos;
 
+import com.api.parkingcontrol.validator.ApartmentAndBlockConstraint;
+import com.api.parkingcontrol.validator.LicensePlateCarConstraint;
+import com.api.parkingcontrol.validator.ParkingSpotNumberConstraint;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+@ApartmentAndBlockConstraint
 public class ParkingSpotDto {
 
     @NotBlank
+    @ParkingSpotNumberConstraint
     private String parkingSpotNumber;
     @NotBlank
+    @LicensePlateCarConstraint
     @Size(max = 7)
     private String licensePlateCar;
     @NotBlank
